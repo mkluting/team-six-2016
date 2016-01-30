@@ -2,7 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-var mysql = require('mysql');
+var connection = require('../config/db');
 
 router.use(function(req, res, next) {
 	//This will be run before any endpoint function

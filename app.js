@@ -7,21 +7,12 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
-var mysql = require('mysql');
+var connection = require('./config/db');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-//Configure the MySQL connection
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'password1',
-	database: 'voyage'
-});
-connection.connect();
 
 var port = process.env.PORT || 8080;        // set our port
 

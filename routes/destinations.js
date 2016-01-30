@@ -1,6 +1,6 @@
 var express = require('express');
-var router = express.Router();
-var mysql = require('mysql');
+var router = express.Router()
+var connection = require('../config/db');
 
 
 router.use(function(req, res, next) {
@@ -8,13 +8,6 @@ router.use(function(req, res, next) {
 	next();
 });
 
-var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'password1',
-        database: 'voyage'
-});
-connection.connect();
 
 router.get('/', function (req, res) {
 	//res.json({message: 'hello world'});
