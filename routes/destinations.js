@@ -33,7 +33,7 @@ router.get('/:id', function (req, res) {
 router.post('/', function (req, res) {
         connection.query('INSERT INTO Destinations SET ?', req.body, function(err, result) {
                 if (err) throw err;
-                var returnObject = {'created':true};
+                var returnObject = {'created':true}
                 res.json(returnObject);
         });
 });
@@ -43,7 +43,7 @@ router.delete('/:id', function (req, res) {
 	var datId = req.params.id;
 	connection.query('DELETE FROM Destinations WHERE id = '+ datId +';', function (err, rows, fields) {
         	if (err) throw err;
-		var returnObject = {'deleted':true};
+		var returnObject = {'deleted':true}
         	res.json(returnObject);
         });
 
