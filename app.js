@@ -25,11 +25,13 @@ var router = express.Router();              // get an instance of the express Ro
 var phasesRouter = require('./routes/phases');
 var destinationsRouter = require('./routes/destinations');
 var attractionsRouter = require('./routes/attractions');
+var photosRouter = require('./routes/photos');
 
 //app.use('/api', router);
 app.use('/phases', phasesRouter);
 app.use('/destinations', destinationsRouter);
 app.use('/attractions', attractionsRouter);
+app.use('/photos', photosRouter);
 
 // START THE SERVER
 // =============================================================================
