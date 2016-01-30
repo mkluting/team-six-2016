@@ -36,6 +36,7 @@ router.get('/', function(req, res) {
 		if (err) throw err;
 		res.json(rows);
 	});
+	connection.end();
 });
 
 // more routes for our API will happen here
