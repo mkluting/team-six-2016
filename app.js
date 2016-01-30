@@ -23,18 +23,6 @@ var phasesRouter = require('./routes/phases');
 var destinationsRouter = require('./routes/destinations');
 var attractionsRouter = require('./routes/attractions');
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
-	connection.query('SELECT * FROM Phases;', function (err, rows, fields) {
-		if (err) throw err;
-		res.json(rows);
-	});
-});
-
-// more routes for our API will happen here
-
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
 //app.use('/api', router);
 app.use('/api/phases', phasesRouter);
 app.use('/api/destinations', destinationsRouter);
