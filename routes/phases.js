@@ -9,6 +9,7 @@ router.use(function(req, res, next) {
 	next();
 });
 
+// get
 router.get('/', function (req, res) {
         //res.json({message: 'hello world'});
         connection.query('SELECT * FROM Phases;', function (err, rows, fields) {
@@ -27,3 +28,18 @@ router.get('/:id', function (req, res) {
 });
 
 module.exports = router;
+
+// add
+router.post('/', function (req, res) {
+        connection.query('INSERT INTO Attractions SET ?', req.body, function(err, result) {
+                if (err) throw err;
+                var returnObject = {'created':true}
+                res.json(returnObject);
+        });
+});
+
+// delete
+router.delete('/', function (req, res) {
+        res.json({message: 'hello world'});
+});
+
