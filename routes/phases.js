@@ -9,14 +9,6 @@ router.use(function(req, res, next) {
 	next();
 });
 
-var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'password1',
-        database: 'voyage'
-});
-connection.connect();
-
 router.get('/', function (req, res) {
         //res.json({message: 'hello world'});
         connection.query('SELECT * FROM Phases;', function (err, rows, fields) {
