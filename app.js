@@ -28,6 +28,9 @@ var port = process.env.PORT || 8080;        // set our port
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
+var phasesRouter = require('./routes/phases');
+var destinationsRouter = require('./routes/destinations');
+var attractionsRouter = require('./routes/attractions');
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
@@ -42,6 +45,9 @@ router.get('/', function(req, res) {
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+app.use('/phases', phasesRouter);
+app.use('/destinations', destinationsRouter);
+app.use('/attractions', attractionsRouter);
 
 // START THE SERVER
 // =============================================================================
