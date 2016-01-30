@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router()
 var connection = require('../config/db');
 
-//contributors: jeff zotz
+//contributors: jeff zotz,
+//		Robert Smith	
 
 
 router.use(function(req, res, next) {
@@ -41,7 +42,7 @@ router.post('/', function (req, res) {
 // delete
 router.delete('/:id', function (req, res) {
 	var datId = req.params.id;
-	connection.query('DELETE FROM Destinations WHERE id = '+ datId +';', function (err, rows, fields) {
+	connection.query('DELETE FROM Destinations WHERE id = '+ datId +';', function (err, result) {
         	if (err) throw err;
 		var returnObject = {'deleted':true}
         	res.json(returnObject);
@@ -49,5 +50,13 @@ router.delete('/:id', function (req, res) {
 
 });
 
-
+//modify
+router.put('/:id', function (req, res){
+	var dataId = req.params.id;
+	connection.query('UPDATE Destinations SET ?  WHERE id =' + dataId + ';', function (err,result){
+		if(err) throw err;
+		var returnObject = {'updated':true};
+		res.json(returnObject);
+	});
+});
 module.exports = router;

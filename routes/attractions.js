@@ -49,10 +49,12 @@ router.delete('/:id', function (req, res) {
 // update
 router.put('/:id', function (req, res) {
 	var attractionId = req.params.id;
-	connection.query('UPDATE Attractions where id =' + attractionId + 'SET ?', req.body,function(err, result){
+	connection.query('UPDATE Attractions SET ?  WHERE id = ' + attractionId, req.body, function(err, result){
 	if (err) throw err;
+	console.log("got past err throw");
 	var returnObject = {'updated':true}
 	res.json(returnObject);
+	console.log("returned the object");
 	});
 
 });
