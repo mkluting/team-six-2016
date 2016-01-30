@@ -38,10 +38,14 @@ router.post('/', function (req, res) {
 
 
 // delete
-router.delete('/', function (req, res) {
-	res.json({message: 'hello world'});
+router.delete('/:id', function (req, res) {
+        var attractionsId = req.params.id
+        connection.query('DELETE FROM Attractions WHERE id =' + attractionsId + ';', function(err, result){
+        if (err) throw err;
+        var returnObject = {'deleted':true}
+        res.json(returnObject);
+        });
 });
-
 // update
 router.put('/', function (req, res) {
 	res.json({message: 'hello world'});
