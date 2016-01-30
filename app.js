@@ -3,7 +3,7 @@
 // BASE SETUP
 // =============================================================================
 //Respawn ourselves as a daemon
-require('daemon')();
+//require('daemon')();
 console.log('Running as process ' + process.pid);
 
 // call the packages we need
@@ -11,6 +11,7 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var connection = require('./config/db');
+var mongo = require('mongodb').MongoClient;
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -35,5 +36,12 @@ app.use('/photos', photosRouter);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
+//app.listen(port);
 console.log('Magic happens on port ' + port);
+
+var url = 'mongodb://localhost:27017/caleb';
+mongo.connect(url, function(err, db) {
+//  assert.equal(null, err);
+  console.log("Connected correctly to server.");
+  db.close();
+});
