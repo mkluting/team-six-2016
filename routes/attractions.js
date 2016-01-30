@@ -7,14 +7,6 @@ router.use(function(req, res, next) {
 	next();
 });
 
-//Configure the MySQL connection
-var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'password1',
-        database: 'voyage'
-});
-
 // read
 router.get('/:id', function (req, res) {
 	
