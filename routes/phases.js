@@ -12,7 +12,7 @@ router.use(function(req, res, next) {
 // get
 router.get('/', function (req, res) {
         //res.json({message: 'hello world'});
-        connection.query('SELECT * FROM Phases;', function (err, rows, fields) {
+        connection.query('SELECT * FROM Phases, Destinations where Destinations.phase_id = Phases.id;', function (err, rows, fields) {
         if (err) throw err;
         res.json(rows);
         });
