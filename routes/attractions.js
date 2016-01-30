@@ -47,8 +47,14 @@ router.delete('/:id', function (req, res) {
         });
 });
 // update
-router.put('/', function (req, res) {
-	res.json({message: 'hello world'});
+router.put('/:id', function (req, res) {
+	var attractionId = req.params.id;
+	connection.query('UPDATE Attractions where id =' + attractionId + 'SET ?', req.body,function(err, result){
+	if (err) throw err;
+	var returnObject = {'updated':true}
+	res.json(returnObject);
+	});
+
 });
 
 module.exports = router;
