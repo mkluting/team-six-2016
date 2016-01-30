@@ -51,6 +51,12 @@ router.delete('/:id', function (req, res) {
 });
 
 //modify
-
-
+router.put('/:id', function (req, res){
+	var dataId = req.params.id;
+	connection.query('UPDATE Destinations SET ?  WHERE id =' + dataId + ';', function (err,result){
+		if(err) throw err;
+		var returnObject = {'updated':true};
+		res.json(returnObject);
+	});
+});
 module.exports = router;
