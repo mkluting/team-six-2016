@@ -27,9 +27,9 @@ var destinationsRouter = require('./routes/destinations');
 var attractionsRouter = require('./routes/attractions');
 
 //app.use('/api', router);
-app.use('/api/phases', phasesRouter);
-app.use('/api/destinations', destinationsRouter);
-app.use('/api/attractions', attractionsRouter);
+app.use('/phases', phasesRouter);
+app.use('/destinations', destinationsRouter);
+app.use('/attractions', attractionsRouter);
 
 // START THE SERVER
 // =============================================================================
