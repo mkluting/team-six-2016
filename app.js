@@ -35,10 +35,10 @@ router.get('/', function(req, res) {
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', router);
-app.use('/phases', phasesRouter);
-app.use('/destinations', destinationsRouter);
-app.use('/attractions', attractionsRouter);
+//app.use('/api', router);
+app.use('/api/phases', phasesRouter);
+app.use('/api/destinations', destinationsRouter);
+app.use('/api/attractions', attractionsRouter);
 
 // START THE SERVER
 // =============================================================================
