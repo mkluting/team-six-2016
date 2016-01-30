@@ -42,7 +42,7 @@ router.post('/', function (req, res) {
 // delete
 router.delete('/:id', function (req, res) {
 	var datId = req.params.id;
-	connection.query('DELETE FROM Destinations WHERE id = '+ datId +';', function (err, rows, fields) {
+	connection.query('DELETE FROM Destinations WHERE id = '+ datId +';', function (err, result) {
         	if (err) throw err;
 		var returnObject = {'deleted':true};
         	res.json(returnObject);
