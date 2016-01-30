@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router()
 var connection = require('../config/db');
 
-//contributors: jeff zotz
+//contributors: jeff zotz,
+//		Robert Smith	
 
 
 router.use(function(req, res, next) {
@@ -48,6 +49,8 @@ router.delete('/:id', function (req, res) {
         });
 
 });
+
+//modify
 
 
 module.exports = router;
