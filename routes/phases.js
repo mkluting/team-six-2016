@@ -121,7 +121,7 @@ router.post('/', function (req, res) {
 router.delete('/:id', function (req, res) {
         //res.json({message: 'hello world'});
 	var datId = req.params.id;
-	connection.query('DELETE FROM Phases WHERE id =' datId +';', function(err, result){
+	connection.query('DELETE FROM Phases WHERE id ='+ datId +';', function(err, result){
 		if (err) throw err;
 		var returnObject = {'deleted':true}
 		res.json(returnObject);
