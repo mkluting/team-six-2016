@@ -19,8 +19,8 @@ router.get('/', function (req, res) {
 
      if (err) throw err;
 	for(var dest in rows){
-	   if(destIds.indexOf(rows[dest].id) == -1) {
-	       destIds.push(rows[dest].id);		
+	   if(destIds.indexOf(rows[dest].d_id) == -1) {
+	       destIds.push(rows[dest].d_id);		
 	       var my_dest  = {};
 		        my_dest.id = rows[dest].d_id;
 		        my_dest.name = rows[dest].d_name;
@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
     	//for each in destnations
 	my_dest.attractions = [];		
     		for (var attract in rows){
-                    if(rows[attract].id == my_dest.id){
+                    if(rows[attract].d_id == my_dest.id){
 		        var my_attract = {};
 		        my_attract.id = rows[attract].a_id;
 		        my_attract.name = rows[attract].a_name;
