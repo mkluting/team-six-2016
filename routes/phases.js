@@ -22,7 +22,7 @@ router.get('/:id', function (req, res) {
 		console.log(rows[row].id);
 		//console.log((rows[row].id in phaseIds));
 		//console.log(phaseIds);
-	   if( !(found) && (rows[row].id == datId) {
+	   if( !(found) && (rows[row].id == datId)) {
 	       //phaseIds.push(rows[row].id);		
 	       my_phase.id = rows[row].id;
                my_phase.name = rows[row].p_name;
