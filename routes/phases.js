@@ -15,17 +15,19 @@ router.get('/', function (req, res) {
         connection.query('SELECT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Phases p, Destinations d WHERE p.id = d.phase_id;'
 , function (err, rows, fields) {
    	var data = [];
+	var phaseIds = [];
+I
      if (err) throw err;
 	for(var row in rows){
-	   		
-	   var my_phase = {};
-	   my_phase.id = rows[row].id;
-
-           my_phase.name = rows[row].p_name;
-	   my_phase.sort = rows[row].p_sort;
-	   my_phase.destinations = [];
-		//for each in destinations
-		for (var dest in rows){
+	   if( !(rows[row].id in phaseIds)){
+	       phaseIds.push(rows[row]);		
+	       var my_phase = {};
+	       my_phase.id = rows[row].id;
+               my_phase.name = rows[row].p_name;
+	       my_phase.sort = rows[row].p_sort;
+	       my_phase.destinations = [];
+	    	//for each in destinations
+    		for (var dest in rows){
                     if(rows[dest].id == my_phase.id){
 		        var my_dest = {};
 		        my_dest.id = rows[dest].d_id;
@@ -41,7 +43,8 @@ router.get('/', function (req, res) {
 		        my_phase.destinations.push(my_dest);
                     }
                 }
-            data.push(my_phase);
+           data.push(my_phase);  
+	   }
 	}
 	res.json(data);
         });
