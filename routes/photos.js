@@ -30,6 +30,7 @@ router.get('/:id', function (req, res) {
  		assert.equal(null, err);
 		findPhotos(db, function(photos) {
   			db.close();
+			res.json(photos);
 		});
 	});
 });
