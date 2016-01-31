@@ -17,7 +17,7 @@ router.use(function(req, res, next) {
 });
 
 var findPhotos = function(db, callback) {
-	var cursor = db.collection('photo').find();
+	var cursor = db.collection('photos').find();
 	var photos = cursor.toArray();
 	callback(photos);
 	};
