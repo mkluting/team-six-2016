@@ -16,8 +16,8 @@ router.use(function(req, res, next) {
 	next();
 });
 
-var findPhotos = function(db, callback) {
-	var cursor = db.collection('photos').find();
+var findPhotos = function(db, id, callback) {
+	var cursor = db.collection('photos').find( { $where: "this.uuid == " + id } );
 	cursor.toArray(function (err, photos) {
 		callback(photos);
 	});
@@ -28,7 +28,7 @@ router.get('/:id', function (req, res) {
 	var photoId = req.params.id;
 	MongoClient.connect(url, function(err, db) {
  		assert.equal(null, err);
-		findPhotos(db, function(photos) {
+		findPhotos(db, photoId, function(photos) {
   			db.close();
 			res.json(photos);
 		});
