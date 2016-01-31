@@ -19,8 +19,8 @@ router.get('/', function (req, res) {
 
      if (err) throw err;
 	for(var dest in rows){
-	   if(destIds.indexOf(rows[row].id) == -1) {
-	       destIds.push(rows[row].id);		
+	   if(destIds.indexOf(rows[dest].id) == -1) {
+	       destIds.push(rows[dest].id);		
 	       var my_dest  = {};
 		        my_dest.id = rows[dest].d_id;
 		        my_dest.name = rows[dest].d_name;
