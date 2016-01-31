@@ -16,11 +16,11 @@ router.get('/', function (req, res) {
 , function (err, rows, fields) {
    	var data = [];
 	var phaseIds = [];
-I
+
      if (err) throw err;
 	for(var row in rows){
 	   if( !(rows[row].id in phaseIds)){
-	       phaseIds.push(rows[row]);		
+	       phaseIds.push(rows[row].id);		
 	       var my_phase = {};
 	       my_phase.id = rows[row].id;
                my_phase.name = rows[row].p_name;
