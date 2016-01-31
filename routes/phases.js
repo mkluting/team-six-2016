@@ -59,7 +59,6 @@ router.get('/:id', function (req, res) {
         });
 });
 
-module.exports = router;
 
 // add
 router.post('/', function (req, res) {
@@ -81,10 +80,7 @@ router.delete('/', function (req, res) {
     {'1': '7', '2': '3'}
 */
 router.post('/phase_sort', function (req, res) {
-
-    console.log("Something");
     var phases = req.body;
-    console.log(req.body);
     var keys = phases.keys;
     for (var item in keys) {
         connection.query('UPDATE Phases SET sort=' + phases[keys[item]] + ' WHERE id=' + keys[item], function(err, result) {
@@ -92,3 +88,5 @@ router.post('/phase_sort', function (req, res) {
         });
     }
 });
+
+module.exports = router;
