@@ -24,7 +24,15 @@ $(document).ready(function() {
 
 			// on click of add leg
 			$('button.new-leg').on('click', function() {
-				alert('if only there was time..');	
+					
+				var xhr = $.post({
+					url : '/api/phases',
+					data : {
+						"name":"new leg",
+						"sort":1
+					       	},
+					dataType: 'json'
+				});
 			});	
 		},
 
@@ -69,7 +77,7 @@ $(document).ready(function() {
 
 						var $dest = $('<div class="destination col-md-12"></div>'),
 							$photo = $('<div class="photo col-md-2"><img src="'+destination.dest_photo+'" height="75px" width="75px"/></div>'),
-							$header = $('<div class="destination-header col-md-6">'+destination.name+'</div>'),
+							$header = $('<div class="destination-header col-md-6"><a href ="http://hackmags.com/destination.html?dest_id='+destination.id + '">' + destination.name + '</a></div>'),
 							$distance = $('<div class="distance col-md-2">'+destination.distance+' Miles</div>'),
 							$mapPhoto = $('<div class="map-photo col-md-2"><img height="75px" width="75px" src="'+destination.map_photo+'"/></div>');
 
