@@ -83,9 +83,7 @@ router.delete('/', function (req, res) {
 router.post('/phase_sort', function (req, res) {
 
     var phases = req.body;
-    var fs = require('fs');
-    fs.writeFile('/tmp/kenny.log', req.body);
-    fs.writeFile('/tmp/kenny.log', phases);
+    console.log(req.body);
     var keys = phases.keys;
     for (var item in keys) {
         connection.query('UPDATE Phases SET sort=' + phases[keys[item]] + ' WHERE id=' + keys[item], function(err, result) {
