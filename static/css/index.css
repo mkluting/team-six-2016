@@ -1,1 +1,37 @@
-test
+.voyages .new-leg { 
+	float: right;
+	margin-top: 60px;
+}
+.voyages .voyages-header h2, .voyages .voyages-header img {
+	float: left;
+	margin: 0;
+}
+.voyages .voyages-header {
+	margin-top: 20px;
+}
+.voyages .voyages-body {
+	clear: both;
+}
+.voyages .voyages-body .loading-svg {
+	text-align: center;
+}
+.voyages .voyages-body .loading-svg img {
+	margin-top: 60px;
+}
+.voyages .voyages-body .leg-header .header {
+	line-height: 35px;
+}
+.voyages .voyages-body .leg-header-actions {
+	text-align: right;
+}
+.leg-header-actions .delete-leg{
+	margin-left: 5px;
+}
+.leg-body {
+	clear:both;
+	height: 50px;
+}
+.legs-listing {
+	padding: 0 10px;
+	list-style-type: none;
+}	

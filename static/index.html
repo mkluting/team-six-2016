@@ -1,7 +1,10 @@
 <html>
 	<head>
-		<title>Your Voyage</title>
+		<title>Voyage Planner</title>
 		<link rel="stylesheet" href="css/index.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<script src="js/index.js"></script>
 <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -11,8 +14,22 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<link rel="icon" type="shortcut icon" href="http://hackmags.com/favicon.ico">
 	</head>
 	<body>
-		Plan a trip
+		<div class="voyages">
+			<div class="col-xs-12 voyages-header page-header">
+				<img src="img/voyage_logo.png" height="100px"/>
+				<button class="new-leg btn btn-primary">New Leg</button>
+			</div>	
+
+			<div class="voyages-body">
+				<div class="loading-svg">
+					<img src="img/ripple.svg"/>	
+				</div>
+				<ul class="legs-listing list-unstyled" style="display:none"></ul>
+
+			</div>
+		</div>
 	</body>
 </html>

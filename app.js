@@ -3,7 +3,7 @@
 // BASE SETUP
 // =============================================================================
 //Respawn ourselves as a daemon
-//require('daemon')();
+require('daemon')();
 console.log('Running as process ' + process.pid);
 
 // call the packages we need
@@ -36,12 +36,4 @@ app.use('/photos', photosRouter);
 
 // START THE SERVER
 // =============================================================================
-//app.listen(port);
-console.log('Magic happens on port ' + port);
-
-var url = 'mongodb://localhost:27017/caleb';
-mongo.connect(url, function(err, db) {
-//  assert.equal(null, err);
-  console.log("Connected correctly to server.");
-  db.close();
-});
+app.listen(port);
