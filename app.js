@@ -36,12 +36,4 @@ app.use('/photos', photosRouter);
 
 // START THE SERVER
 // =============================================================================
-//app.listen(port);
-console.log('Magic happens on port ' + port);
-
-var url = 'mongodb://localhost:27017/caleb';
-mongo.connect(url, function(err, db) {
-//  assert.equal(null, err);
-  console.log("Connected correctly to server.");
-  db.close();
-});
+app.listen(port);
