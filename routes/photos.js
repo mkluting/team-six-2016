@@ -18,10 +18,10 @@ router.use(function(req, res, next) {
 
 var findPhotos = function(db, callback) {
 	var cursor = db.collection('photos').find();
-	var photos = cursor.toArray();
-	callback(photos);
-	};
-
+	cursor.toArray(function (err, photos) {
+		callback(photos);
+	});
+};
 
 // read
 router.get('/:id', function (req, res) {
