@@ -11,6 +11,7 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var connection = require('./config/db');
+var mongo = require('mongodb').MongoClient;
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -25,13 +26,14 @@ var router = express.Router();              // get an instance of the express Ro
 var phasesRouter = require('./routes/phases');
 var destinationsRouter = require('./routes/destinations');
 var attractionsRouter = require('./routes/attractions');
+var photosRouter = require('./routes/photos');
 
 //app.use('/api', router);
 app.use('/phases', phasesRouter);
 app.use('/destinations', destinationsRouter);
 app.use('/attractions', attractionsRouter);
+app.use('/photos', photosRouter);
 
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
