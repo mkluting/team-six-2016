@@ -12,7 +12,7 @@ router.use(function(req, res, next) {
 // get
 router.get('/', function (req, res) {
         //res.json({message: 'hello world'});
-        connection.query('SELECT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Phases p, Destinations d WHERE p.id = d.phase_id;'
+        connection.query('SELECT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Phases p, Destinations d WHERE p.id = d.phase_id ORDER BY p.sort;'
 , function (err, rows, fields) {
    	var data = [];
 	var phaseIds = [0];
@@ -81,13 +81,13 @@ router.delete('/', function (req, res) {
 */
 router.post('/phase_sort', function (req, res) {
     var phases = req.body;
-    var keys = phases.keys;
+    var keys = Object.keys(phases);
     for (var item in keys) {
         connection.query('UPDATE Phases SET sort=' + phases[keys[item]] + ' WHERE id=' + keys[item], function(err, result) {
             if (err) throw err;
-            res.status(200);
         });
     }
+    res.status(200).send();
 });
 
 module.exports = router;
