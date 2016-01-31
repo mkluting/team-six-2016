@@ -12,13 +12,59 @@ router.use(function(req, res, next) {
 });
 
 //get all destinations
-router.get('/', function (req, res) {
-	//res.json({message: 'hello world'});
-	connection.query('SELECT * FROM Destinations;', function (err, rows, fields) {
-        	if (err) throw err; 
-        	res.json(rows);
-	});
+router.get('/', function (req, res) { 
+	connection.query('SELECT a.id AS a_id, a.name AS a_name, a.cost AS a_cost, a.star_rating AS a_star_rating, a.description AS a_description, a.visit_date AS a_visit_date, a.map_photo AS a_map_photo, a.journal AS a_journal, a.dest_id AS a_dest_id, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Attractions a, Destinations d WHERE d.id = a.dest_id', function (err, rows, fields) {
+   	var data = [];
+	var destIds = [];
+
+     if (err) throw err;
+	for(var dest in rows){
+	   if(destIds.indexOf(rows[row].id) == -1) {
+	       destIds.push(rows[row].id);		
+	       var my_dest  = {};
+		        my_dest.id = rows[dest].d_id;
+		        my_dest.name = rows[dest].d_name;
+		        my_dest.distance = rows[dest].d_distance;
+		        my_dest.dest_photo = rows[dest].d_destphoto;
+		        my_dest.map_photo = rows[dest].d_map_photo;
+		        my_dest.voyage_desc = rows[dest].d_voyage_desc;
+		        my_dest.dest_desc = rows[dest].d_dest_desc;
+		        my_dest.arrival_date = rows[dest].d_arrival_date;
+		        my_dest.departure_date = rows[dest].d_departure_date;
+		        my_dest.sort = rows[dest].d_sort;
+		        my_phase.destinations.push(my_dest);
+    	//for each in destinations
+			
+    		for (var attract in rows){
+                    if(rows[attract].id == my_attract.id){
+		        var my_attract = {};
+		        my_attract.id = rows[dest].a_id;
+		        my_attract.name = rows[dest].a_name;
+		        my_attract.star_rating = rows[dest].a_star_rating;
+		        my_attract.description = rows[dest].a_description;
+		        my_attract.visit_date = rows[dest].a_visit_date;
+		        my_attract.map_photo = rows[dest].a_map_photo;
+		        my_attract.journal = rows[dest].a_journal;
+		        my_attract.dest_id = rows[dest].a_dest_id;
+		        my_dest.attractions.push(my_attract);
+                    }
+                }
+           data.push(my_dest);  
+	   }
+	}
+	res.json(data);
+        });
 });
+
+router.get('/:id', function (req, res) {
+        //res.json({message: 'hello world'});
+        var datId = req.params.id;
+        connection.query('SELECT * FROM Phases  WHERE id = '+ datId +';', function (err, rows, fields) {
+        if (err) throw err;
+        res.json(rows);
+        });
+});
+
 
 //get single destination
 router.get('/:id', function (req, res) {
