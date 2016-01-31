@@ -17,7 +17,7 @@ router.use(function(req, res, next) {
 });
 
 var findPhotos = function(db, id, callback) {
-	var cursor = db.collection('photos').find( { $where: "this.uuid == " + id } );
+	var cursor = db.collection('photos').find( { $where: "this.uuid == " + "'" + id + "'" } );
 	cursor.toArray(function (err, photos) {
 		callback(photos);
 	});
