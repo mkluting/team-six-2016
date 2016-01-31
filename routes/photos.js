@@ -16,13 +16,21 @@ router.use(function(req, res, next) {
 	next();
 });
 
+var findPhotos = function(db, callback) {
+	var cursor = db.collection('photo').find();
+	var photos = cursor.toArray();
+	callback(photos);
+	};
+
+
 // read
 router.get('/:id', function (req, res) {
 	var photoId = req.params.id;
 	MongoClient.connect(url, function(err, db) {
  		assert.equal(null, err);
-  		res.send("Connected correctly to server.");
-  		db.close();
+		findPhotos(db, function(photos) {
+  			db.close();
+		});
 	});
 });
 
