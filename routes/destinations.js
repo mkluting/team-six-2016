@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
     	//for each in destnations
 	my_dest.attractions = [];		
     		for (var attract in rows){
-                    if(rows[attract].id == my_dest.id){
+                    if(rows[attract].dest_id == my_dest.id){
 		        var my_attract = {};
 		        my_attract.id = rows[attract].a_id;
 		        my_attract.name = rows[attract].a_name;
