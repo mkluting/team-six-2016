@@ -34,7 +34,7 @@ router.get('/', function (req, res) {
 		        my_dest.sort = rows[dest].d_sort;
 		        
     	//for each in destnations
-			
+	my_dest.attractions = [];		
     		for (var attract in rows){
                     if(rows[attract].id == my_dest.id){
 		        var my_attract = {};
