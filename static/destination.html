@@ -1,18 +1,152 @@
 <html>
-	<head>
-		<title>Your Voyage</title>
-		<link rel="stylesheet" href="css/index.css"/>
-		<script src="js/index.js"></script>
-<!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<head>
+    <title>Voyage - Destination - Miami, Flordia</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="/js/destination.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div style="padding: 10px;">
+    <table style="width: 100%;">
+        <tbody>
+        <tr>
+            <td style="width: 50%; text-align: left; padding: 5px 10px;">
+                    <span style="float: left;">
+                        <img height="100px" src="http://hackmags.com/img/voyage_logo.png">
+                    </span>
+            </td>
+            <td style="width: 50%; text-align: right; padding-right: 50px;">
+                <span class="btn-group">
+                    <span style="float: right;">
+                        <button type="button" class="new-button btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <span style="color: lightblue"><i class="fa fa-minus-square"></i>&nbsp; Delete Attraction</span>&nbsp;<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </span>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div style="padding: 10px 30px;">
+    <div class="jumbotron" style="padding: 10px;">
+        <h1>Miami, Flordia</h1>
+        <table class="center-block"
+               style="width: auto; text-align: center; border-collapse: collapse; min-height: 300px;">
+            <tbody>
+            <tr>
+                <td style="width: auto; text-align: center; vertical-align: middle;">
+                    <div class="form-group" style="padding: 25px 10px 10px 10px;">
+                        <textarea class="form-control" rows="14" style="width: 300px;" id="comment"
+                                  placeholder="Add comments about this location here."></textarea>
+                    </div>
+                </td>
+                <td style="padding: 10px;">
+                    <img src="http://placehold.it/294?text=Location">
+                </td>
+                <td style="padding: 10px;">
+                    <img src="http://placehold.it/294?text=Map">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table class="center-block" style="width: auto; text-align: center; border-collapse: collapse;">
+            <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: left; padding: 3px 10px;"><label for="arrival_date"><i class="fa fa-calendar"></i>&nbsp;Arrival
+                                Date:</label></td>
+                            <td style="text-align: left; padding: 3px 10px;"><input type="text" id="arrival_date"
+                                                                                    placeholder="Select Arrival Date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; padding: 3px 10px;"><label for="departure_date"><i class="fa fa-calendar"></i>&nbsp;Departure
+                                Date:</label></td>
+                            <td style="text-align: left; padding: 3px 10px;"><input type="text" id="departure_date"
+                                                                                    placeholder="Select Destination Date"/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td style="text-align: left; padding: 0 20px;">
+                    <div class="form-group" style="padding: 10px;">
+                        <textarea class="form-control" rows="5" style="min-width: 725px;" id="comment"
+                                  placeholder="Add comments about this location here."></textarea>
+                        <span class="btn-group" style="float:right; padding-top: 10px;">
+                    <span>
+                        <button type="button" class="new-button btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <span style="color: lightblue"><i class="fa fa-check-circle-o"></i>&nbsp;Add Information</span>
+                        </button>
+                    </span>
+                </span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	</head>
-	<body>
-		Plan a trip
-	</body>
+    </div>
+</div>
+<div style="padding: 0 30px">
+    <div class="jumbotron" style="padding: 10px 30px 20px 30px;">
+        <table class="center-block" style="width: 100%;">
+            <tbody>
+            <tr>
+                <td style="width: 50%; text-align: left;">
+                    <h2>Attractions</h2></td>
+                <td style="width: 50%; text-align: right; padding-right: 15px;">
+                    <span class="btn-group">
+                    <span style="float: right;">
+                        <button type="button" class="new-button btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <span style="color: lightblue"><i class="fa fa-plus-square"></i>&nbsp;Add Attraction</span>
+                        </button>
+                    </span>
+                </span></td>
+            </tr>
+            </tbody>
+        </table>
+        <hr/>
+        <table class="center-block">
+            <tbody>
+            <tr>
+                <td style="padding: 10px;"><img src="http://placehold.it/294?text=Image"></td>
+                <td style="padding: 10px;"><img src="http://placehold.it/294?text=Image"></td>
+                <td style="padding: 10px;"><img src="http://placehold.it/294?text=Image"></td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;"><img src="http://placehold.it/294?text=Image"></td>
+                <td style="padding: 10px;"><img src="http://placehold.it/294?text=Image"></td>
+                <td style="padding: 10px;"><img src="http://placehold.it/294?text=Image"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
 </html>
+

@@ -46,6 +46,8 @@ $(document).ready(function() {
 					//no phases 
 				}
 
+				console.log(data);
+
 				var count = 1;
 				$.each(phases, function(index, val) {
 					var phase = val;

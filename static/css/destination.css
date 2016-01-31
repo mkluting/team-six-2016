@@ -1,1 +1,16 @@
-init
+.logo {
+  position: absolute;
+  left: 20;
+  top: 100;
+}
+
+.new-button {
+  position: absolute;
+  right: 20;
+  top: 100;
+}
+
+.rmv-button {
+  position: absolute;
+  right: 20;
+}

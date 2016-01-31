@@ -1,8 +1,11 @@
 <html>
 	<head>
 		<title>Your Voyage</title>
-		<link rel="stylesheet" href="css/index.css"/>
-		<script src="js/index.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="css/attraction.css"/>
+		<script src="js/attraction.js"></script>
 <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -13,6 +16,41 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		Plan a trip
+		<div class="attraction">
+			<div class="col-xs-12 attraction-header page-header">
+				<img src="img/voyage_logo.png" height="100px"/>
+				<button class="new-leg btn btn-primary">Delete Attraction</button>
+			</div>	
+
+			<div class="attraction-body col-xs-12">
+				<div class='attr-title'>
+					<span>Attraction Title</span>
+					<button type='button' class='btn btn-primary'>Add Photo</button>
+				</div>
+				<div class='desc col-xs-5'>
+					<textarea placeholder="Add Description here..."></textarea>
+					<input type='text' class='arrival-date'/>
+				</div>
+				<div class='attr-picture-container col-xs-7'>
+					<div class='col-xs-5 thumbnail attr-pic'>
+					</div>
+					<div class='col-xs-5 thumbnail attr-pic'>
+					</div>
+					<div class='col-xs-5 thumbnail attr-pic'>
+					</div>
+					<div class='col-xs-5 thumbnail attr-pic'>
+					</div>
+				</div>
+				<div class='col-xs-12 journal'>
+					<div class='journal-title'>
+						<h2>Journals</h2>
+					</div>
+					<div class='journal-text'>
+						<textarea placeholder='Add Comments...'>
+						</textarea>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

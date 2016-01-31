@@ -1,1 +1,29 @@
-init
+.attraction .attraction-body {
+	display: inline-block;
+}
+.attraction .attr-title{
+	height:50px;
+}
+.attraction .attr-title span{
+	font-size:24px;
+	font-weight:bold;
+}
+.attraction .attr-title button {
+	float: right;
+}
+.attraction .desc{
+	height: 650px;
+}
+.attraction .desc textarea{
+	height:200px;
+	width: 350px;
+}
+.attraction .attr-pic{
+	height: 250px;
+}
+.attraction .attr-pic img {
+	height: 250px;
+}
+.attraction .del-attr {
+	float: right;
+}
