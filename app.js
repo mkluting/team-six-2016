@@ -3,7 +3,7 @@
 // BASE SETUP
 // =============================================================================
 //Respawn ourselves as a daemon
-//require('daemon')();
+require('daemon')();
 console.log('Running as process ' + process.pid);
 
 // call the packages we need
