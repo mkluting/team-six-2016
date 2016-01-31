@@ -32,8 +32,8 @@ router.get('/', function (req, res) {
 		        my_dest.arrival_date = rows[dest].d_arrival_date;
 		        my_dest.departure_date = rows[dest].d_departure_date;
 		        my_dest.sort = rows[dest].d_sort;
-		        my_phase.destinations.push(my_dest);
-    	//for each in destinations
+		        
+    	//for each in destnations
 			
     		for (var attract in rows){
                     if(rows[attract].id == my_attract.id){
