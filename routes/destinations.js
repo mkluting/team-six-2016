@@ -38,8 +38,8 @@ router.get('/', function (req, res) {
     		for (var attract in rows){
                     if(rows[attract].id == my_dest.id){
 		        var my_attract = {};
-		        my_attract.id = rows[].a_id;
-		        my_attract.name = rows[].a_name;
+		        my_attract.id = rows[attract].a_id;
+		        my_attract.name = rows[attract].a_name;
 		        my_attract.star_rating = rows[attract].a_star_rating;
 		        my_attract.description = rows[attract].a_description;
 		        my_attract.visit_date = rows[attract].a_visit_date;
