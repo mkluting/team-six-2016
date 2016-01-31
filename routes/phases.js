@@ -85,26 +85,14 @@ router.delete('/', function (req, res) {
 */
 router.post('/phase_sort', function (req, res) {
     var phases = req.body;
-<<<<<<< HEAD
-	console.log(phases);
-    var keys = Object.keys(phases);
-	console.log(keys);
-    for (var item in keys) {
-		console.log('UPDATE Phases SET sort=' + phases[keys[item]] + ' WHERE id=' + keys[item]);
-=======
     var keys = Object.keys(phases);
     for (var item in keys) {
->>>>>>> 314a73dc133d1ee5b48cba3617200ed80b4c20f2
         connection.query('UPDATE Phases SET sort=' + phases[keys[item]] + ' WHERE id=' + keys[item], function(err, result) {
             if (err) throw err;
 			console.log(result);
         });
     }
-<<<<<<< HEAD
-	res.status(200).send();	
-=======
     res.status(200).send();
->>>>>>> 314a73dc133d1ee5b48cba3617200ed80b4c20f2
 });
 
 module.exports = router;
