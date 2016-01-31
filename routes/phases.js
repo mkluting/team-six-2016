@@ -20,6 +20,7 @@ router.get('/', function (req, res) {
 	   		
 	   var my_phase = {};
 	   my_phase.id = rows[row].id;
+
            my_phase.name = rows[row].p_name;
 	   my_phase.sort = rows[row].p_sort;
 	   my_phase.destinations = [];
