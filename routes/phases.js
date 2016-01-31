@@ -82,6 +82,7 @@ router.delete('/', function (req, res) {
 */
 router.post('/phase_sort', function (req, res) {
 
+    console.log("Something");
     var phases = req.body;
     console.log(req.body);
     var keys = phases.keys;
