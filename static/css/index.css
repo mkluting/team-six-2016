@@ -35,3 +35,19 @@
 	padding: 0 10px;
 	list-style-type: none;
 }	
+.voyages-body .update-order-btn {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+.voyages .leg {
+	padding: 0;
+}
+.voyages .leg .destination > div {
+	line-height: 75px;
+}
+.voyages .leg-header .header {
+	font-size: 20px;
+}
+.destination {
+	padding: 5px 15px;
+}
