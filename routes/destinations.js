@@ -13,7 +13,7 @@ router.use(function(req, res, next) {
 
 //get all destinations
 router.get('/', function (req, res) { 
-	connection.query('SELECT a.id AS a_id, a.name AS a_name, a.cost AS a_cost, a.star_rating AS a_star_rating, a.description AS a_description, a.visit_date AS a_visit_date, a.map_photo AS a_map_photo, a.journal AS a_journal, a.dest_id AS a_dest_id, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Attractions a, Destinations d WHERE d.id = a.dest_id', function (err, rows, fields) {
+	connection.query('SELECT DISTINCT a.id AS a_id, a.name AS a_name, a.cost AS a_cost, a.star_rating AS a_star_rating, a.description AS a_description, a.visit_date AS a_visit_date, a.map_photo AS a_map_photo, a.journal AS a_journal, a.dest_id AS a_dest_id, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Attractions a, Destinations d WHERE d.id = a.dest_id ORDER BY d.sort', function (err, rows, fields) {
    	var data = [];
 	var destIds = [];
 
@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
     	//for each in destnations
 	my_dest.attractions = [];		
     		for (var attract in rows){
-                    if(rows[attract].dest_id == my_dest.id){
+                    if(rows[attract].id == my_dest.id){
 		        var my_attract = {};
 		        my_attract.id = rows[attract].a_id;
 		        my_attract.name = rows[attract].a_name;
