@@ -120,7 +120,7 @@ router.post('/', function (req, res) {
 // delete
 router.delete('/:id', function (req, res) {
         //res.json({message: 'hello world'});
-	var datId = req params.id;
+	var datId = req.params.id;
 	connection.query('DELETE FROM Phases WHERE id =' datId +';', function(err, result){
 		if (err) throw err;
 		var returnObject = {'deleted':true}
