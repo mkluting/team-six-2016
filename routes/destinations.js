@@ -38,14 +38,14 @@ router.get('/', function (req, res) {
     		for (var attract in rows){
                     if(rows[attract].id == my_dest.id){
 		        var my_attract = {};
-		        my_attract.id = rows[dest].a_id;
-		        my_attract.name = rows[dest].a_name;
-		        my_attract.star_rating = rows[dest].a_star_rating;
-		        my_attract.description = rows[dest].a_description;
-		        my_attract.visit_date = rows[dest].a_visit_date;
-		        my_attract.map_photo = rows[dest].a_map_photo;
-		        my_attract.journal = rows[dest].a_journal;
-		        my_attract.dest_id = rows[dest].a_dest_id;
+		        my_attract.id = rows[].a_id;
+		        my_attract.name = rows[].a_name;
+		        my_attract.star_rating = rows[attract].a_star_rating;
+		        my_attract.description = rows[attract].a_description;
+		        my_attract.visit_date = rows[attract].a_visit_date;
+		        my_attract.map_photo = rows[attract].a_map_photo;
+		        my_attract.journal = rows[attract].a_journal;
+		        my_attract.dest_id = rows[attract].a_dest_id;
 		        my_dest.attractions.push(my_attract);
                     }
                 }
