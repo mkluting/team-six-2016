@@ -85,7 +85,7 @@ router.post('/phase_sort', function (req, res) {
     var phases = req.body;
     var keys = phases.keys;
     for (var item in keys) {
-        connection.query('UPDATE Phases SET sort=' + phases[item] + ' WHERE id=' + item, function(err, result) {
+        connection.query('UPDATE Phases SET sort=' + phases[keys[item]] + ' WHERE id=' + item, function(err, result) {
             if (err) throw err;
         });
     }
