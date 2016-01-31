@@ -62,7 +62,7 @@ module.exports = router;
 router.post('/', function (req, res) {
         connection.query('INSERT INTO Attractions SET ?', req.body, function(err, result) {
                 if (err) throw err;
-                var returnObject = {'created':true}
+                var returnObject = {'created':true};
                 res.json(returnObject);
         });
 });
@@ -72,3 +72,18 @@ router.delete('/', function (req, res) {
         res.json({message: 'hello world'});
 });
 
+// update phase sort orders
+// I'm expecting this object  {'phase_id': 'sort_number'}
+/*
+    {'1': '7', '2': '3'}
+*/
+router.post('/phase_sort', function (req, res) {
+
+    var phases = req.body;
+    var keys = phases.keys;
+    for (var item in keys) {
+        connection.query('UPDATE Phases SET sort=' + phases[item] + ' WHERE id=' + item, function(err, result) {
+            if (err) throw err;
+        });
+    }
+});
