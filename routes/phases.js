@@ -12,11 +12,7 @@ router.use(function(req, res, next) {
 // get
 router.get('/', function (req, res) {
         //res.json({message: 'hello world'});
-<<<<<<< HEAD
         connection.query('SELECT DISTINCT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Phases p, Destinations d WHERE p.id = d.phase_id ORDER BY p.sort'
-=======
-        connection.query('SELECT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Phases p, Destinations d WHERE p.id = d.phase_id ORDER BY p.sort;'
->>>>>>> 314a73dc133d1ee5b48cba3617200ed80b4c20f2
 , function (err, rows, fields) {
    	var data = [];
 	var phaseIds = [];
