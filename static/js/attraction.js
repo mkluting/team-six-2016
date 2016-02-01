@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var Attraction = {
-		
+
 		// object cache
 		cache : {
 		},
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 				console.log(attrs);
 				if (attrs.length <= 0){
-					//no phases 
+					//no phases
 					console.log(attrs);
 				}
 
@@ -62,7 +62,7 @@ $(document).ready(function() {
 					$legHeader.append($actions);
 					$leg.append($legHeader);
 					$leg.append($legBody);
-					
+
 					self.cache.legsListing.append($leg);
 					count++;
 				});

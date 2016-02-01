@@ -1,4 +1,4 @@
-.voyages .new-leg { 
+.voyages .new-leg {
 	float: right;
 	margin-top: 60px;
 }
@@ -34,7 +34,7 @@
 .legs-listing {
 	padding: 0 10px;
 	list-style-type: none;
-}	
+}
 .voyages-body .update-order-btn {
 	margin-left: 10px;
 	margin-bottom: 10px;

@@ -23,7 +23,7 @@ router.get('/:id', function (req, res) {
 		//console.log((rows[row].id in phaseIds));
 		//console.log(phaseIds);
 	   if( !(found) && (rows[row].id == datId)) {
-	       //phaseIds.push(rows[row].id);		
+	       //phaseIds.push(rows[row].id);
 	       my_phase.id = rows[row].id;
                my_phase.name = rows[row].p_name;
 	       my_phase.sort = rows[row].p_sort;
@@ -46,7 +46,7 @@ router.get('/:id', function (req, res) {
 		        my_phase.destinations.push(my_dest);
                     }
                 }
-                found = true;  
+                found = true;
 	   }
 	}
 	res.json(my_phase);
@@ -77,7 +77,7 @@ router.get('/', function (req, res) {
 		console.log((rows[row].id in phaseIds));
 		console.log(phaseIds);
 	   if(phaseIds.indexOf(rows[row].id) == -1) {
-	       phaseIds.push(rows[row].id);		
+	       phaseIds.push(rows[row].id);
 	       var my_phase = {};
 	       my_phase.id = rows[row].id;
                my_phase.name = rows[row].p_name;
@@ -101,7 +101,7 @@ router.get('/', function (req, res) {
 		        my_phase.destinations.push(my_dest);
                     }
                 }
-           data.push(my_phase);  
+           data.push(my_phase);
 	   }
 	}
 	res.json(data);

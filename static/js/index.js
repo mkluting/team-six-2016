@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var Plan = {
-		
+
 		// object cache
 		cache : {
 			loading : $('.loading-svg'),
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 			// on click of add leg
 			$('button.new-leg').on('click', function() {
-					
+
 				var xhr = $.post({
 					url : '/api/phases',
 					data : {
@@ -33,7 +33,7 @@ $(document).ready(function() {
 					       	},
 					dataType: 'json'
 				});
-			});	
+			});
 		},
 
 		getPhases : function() {
@@ -51,10 +51,8 @@ $(document).ready(function() {
 				var phases = data;
 
 				if (phases.length <= 0){
-					//no phases 
+					//no phases
 				}
-
-				console.log(data);
 
 				var count = 1;
 				$.each(phases, function(index, val) {
@@ -74,6 +72,13 @@ $(document).ready(function() {
 
 					$.each(phase.destinations, function(index, value){
 						var destination = value;
+						if (destination.dest_photo === null) {
+							destination.dest_photo = '';
+						}
+
+						if (destination.map_photo === null) {
+							destination.map_photo = '';
+						}
 
 						var $dest = $('<div class="destination col-md-12"></div>'),
 							$photo = $('<div class="photo col-md-2"><img src="'+destination.dest_photo+'" height="75px" width="75px"/></div>'),
@@ -84,11 +89,11 @@ $(document).ready(function() {
 						$dest.append($photo);
 						$dest.append($header);
 						$dest.append($distance);
-						$dest.append($mapPhoto);							
-						$legBody.append($dest); 
+						$dest.append($mapPhoto);
+						$legBody.append($dest);
 					});
 					$leg.append($legBody);
-					
+
 					self.cache.legsListing.append($leg);
 					count++;
 				});
@@ -109,12 +114,12 @@ $(document).ready(function() {
 
 						if($('.update-order-btn').length <= 0 && start_pos != new_pos) {
 							var $btn = $('<button class="update-order-btn btn-danger">Update</button>');
-							$('.voyages-body').prepend($btn);	
+							$('.voyages-body').prepend($btn);
 
 							//click event for updating
 							$btn.on('click', function() {
 								self.updateSort();
-							});	
+							});
 						}
 					}
 				});
@@ -131,7 +136,7 @@ $(document).ready(function() {
 
     				$(document).click(function () {
             			$(currentEle).html($(".thVal").val().trim());
-				    });	
+				    });
 				});*/
 
 				$('button.add-destination').on('click', function() {
@@ -145,7 +150,7 @@ $(document).ready(function() {
 					self.cache.legsListing.fadeIn(1000);
 				});
 
-				
+
 			});
 
 			xhr.fail(function(jqXHR, textStatus, errorThrown) {
@@ -156,7 +161,7 @@ $(document).ready(function() {
 		updateSort : function() {
 			var self = this;
 			var data = {};
-			
+
 			$.each($('.legs-listing').children('.leg'), function(index, val) {
 				var id = $(this).attr('data-id');
 				data[id.toString()] = (index+1).toString();
@@ -166,12 +171,12 @@ $(document).ready(function() {
 			var xhr = $.ajax({
 				url: self.config.updateSortUrl,
 				data: data,
-				type: 'POST',	
+				type: 'POST',
 			});
 			xhr.always(function(data){
 			});
 			xhr.success(function(data) {
-				window.location = '/';	
+				window.location = '/';
 				return false;
 			});
 		}

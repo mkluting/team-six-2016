@@ -21,7 +21,7 @@ var findPhotos = function(db, id, callback) {
 	cursor.toArray(function (err, photos) {
 		if (photos.length) {
 			callback(photos[0]);
-		} else {	
+		} else {
 			callback(null);
 		}
 	});

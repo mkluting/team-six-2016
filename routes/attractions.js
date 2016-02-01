@@ -13,11 +13,11 @@ router.use(function(req, res, next) {
 
 // read
 router.get('/:id', function (req, res) {
-	
+
 	var attractionId = req.params.id;
 	connection.query('select * from Attractions where id = ' + attractionId + ';', function(err, rows, fields) {
 	if (err) throw err;
-	res.json(rows);	
+	res.json(rows);
 	});
 });
 
@@ -26,7 +26,7 @@ router.get('/', function (req, res) {
 	if (destId) {
 	connection.query('select * from Attractions where dest_id = ' + destId + ';', function(err, rows, fields) {
 	if (err) throw err;
-	res.json(rows);	
+	res.json(rows);
 	});
 }
 });
@@ -36,7 +36,7 @@ router.post('/', function (req, res) {
 	connection.query('INSERT INTO Attractions SET ?', req.body, function(err, result) {
 		if (err) throw err;
 		var returnObject = {'created':true}
-		res.json(returnObject);	
+		res.json(returnObject);
 	});
 });
 

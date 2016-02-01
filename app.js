@@ -26,10 +26,14 @@ var attractionsRouter = require('./routes/attractions');
 var photosRouter = require('./routes/photos');
 
 //app.use('/api', router);
-app.use('/phases', phasesRouter);
-app.use('/destinations', destinationsRouter);
-app.use('/attractions', attractionsRouter);
-app.use('/photos', photosRouter);
+app.use('/api/phases', phasesRouter);
+app.use('/api/destinations', destinationsRouter);
+app.use('/api/attractions', attractionsRouter);
+app.use('/api/photos', photosRouter);
+
+// Static files
+var serveStatic = require('serve-static')
+app.use(serveStatic('static'))
 
 // START THE SERVER
 // =============================================================================
