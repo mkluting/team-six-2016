@@ -2,9 +2,6 @@
 
 // BASE SETUP
 // =============================================================================
-//Respawn ourselves as a daemon
-//require('daemon')();
-console.log('Running as process ' + process.pid);
 
 // call the packages we need
 var express    = require('express');        // call express
@@ -37,3 +34,4 @@ app.use('/photos', photosRouter);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
+console.log('Listening for HTTP connections on port ' + port)
