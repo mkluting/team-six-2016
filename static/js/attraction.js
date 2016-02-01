@@ -38,17 +38,14 @@ $(document).ready(function() {
 			xhr.success(function(data) {
 				var attrs = data;
 
-				console.log(attrs);
 				if (attrs.length <= 0){
 					//no phases
-					console.log(attrs);
 				}
 
 				/*
 				var count = 1;
 				$.each(phases, function(index, val) {
 					var phase = val;
-					console.log(phase);
 
 					var	$leg = $('<li class="leg panel panel-default" data-id="'+phase.id+'"></li>'),
 						$legHeader = $('<div class="leg-header panel-heading col-md-12"><div class="header col-md-9">Leg <span class="leg-number">'+count+'</span> - <span class="leg-name">'+phase.name+'</span></div></div>'),
@@ -70,8 +67,7 @@ $(document).ready(function() {
 			});
 
 			xhr.fail(function(jqXHR, textStatus, errorThrown) {
-				console.log(textStatus);
-				console.log(errorThrown);
+				//error
 			});
 		}
 	};

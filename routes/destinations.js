@@ -13,7 +13,7 @@ router.use(function(req, res, next) {
 
 //get all destinations
 router.get('/', function (req, res) {
-	connection.query('SELECT DISTINCT a.id AS a_id, a.name AS a_name, a.cost AS a_cost, a.star_rating AS a_star_rating, a.description AS a_description, a.visit_date AS a_visit_date, a.map_photo AS a_map_photo, a.journal AS a_journal, a.dest_id AS a_dest_id, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Attractions a, Destinations d WHERE d.id = a.dest_id ORDER BY d.sort', function (err, rows, fields) {
+	connection.query('SELECT DISTINCT a.id AS a_id, a.name AS a_name, a.cost AS a_cost, a.star_rating AS a_star_rating, a.description AS a_description, a.visit_date AS a_visit_date, a.map_photo AS a_map_photo, a.journal AS a_journal, a.dest_id AS a_dest_id, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM attractions a, destinations d WHERE d.id = a.dest_id ORDER BY d.sort', function (err, rows, fields) {
    	var data = [];
 	var destIds = [];
 
@@ -61,7 +61,7 @@ router.get('/', function (req, res) {
 router.get('/:id', function (req, res) {
         //res.json({message: 'hello world'});
         var datId = req.params.id;
-        connection.query('SELECT * FROM Phases  WHERE id = '+ datId +';', function (err, rows, fields) {
+        connection.query('SELECT * FROM phases  WHERE id = '+ datId +';', function (err, rows, fields) {
         if (err) throw err;
         res.json(rows);
         });
@@ -71,7 +71,7 @@ router.get('/:id', function (req, res) {
 //get single id
 router.get('/:id', function (req, res) {
 	var datId = req.params.id;
-	connection.query('SELECT DISTINCT a.id AS a_id, a.name AS a_name, a.cost AS a_cost, a.star_rating AS a_star_rating, a.description AS a_description, a.visit_date AS a_visit_date, a.map_photo AS a_map_photo, a.journal AS a_journal, a.dest_id AS a_dest_id, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Attractions a, Destinations d WHERE d.id = a.dest_id ORDER BY d.sort', function (err, rows, fields) {
+	connection.query('SELECT DISTINCT a.id AS a_id, a.name AS a_name, a.cost AS a_cost, a.star_rating AS a_star_rating, a.description AS a_description, a.visit_date AS a_visit_date, a.map_photo AS a_map_photo, a.journal AS a_journal, a.dest_id AS a_dest_id, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM attractions a, destinations d WHERE d.id = a.dest_id ORDER BY d.sort', function (err, rows, fields) {
      var my_dest  = {};
      var found = false; //when the correct phase is found switch to true
      if (err) throw err;
@@ -117,7 +117,7 @@ router.get('/:id', function (req, res) {
 router.get('/:id', function (req, res) {
 	//res.json({message: 'hello world'});
 	var datId = req.params.id;
-	connection.query('SELECT * FROM Destinations WHERE id = '+ datId +';', function (err, rows, fields) {
+	connection.query('SELECT * FROM destinations WHERE id = '+ datId +';', function (err, rows, fields) {
         	if (err) throw err;
         	res.json(rows);
 	});
@@ -125,7 +125,7 @@ router.get('/:id', function (req, res) {
 
 // create
 router.post('/', function (req, res) {
-        connection.query('INSERT INTO Destinations SET ?', req.body, function(err, result) {
+        connection.query('INSERT INTO destinations SET ?', req.body, function(err, result) {
                 if (err) throw err;
                 var returnObject = {'created':true}
                 res.json(returnObject);
@@ -135,7 +135,7 @@ router.post('/', function (req, res) {
 // delete
 router.delete('/:id', function (req, res) {
 	var datId = req.params.id;
-	connection.query('DELETE FROM Destinations WHERE id = '+ datId +';', function (err, result) {
+	connection.query('DELETE FROM destinations WHERE id = '+ datId +';', function (err, result) {
         	if (err) throw err;
 		var returnObject = {'deleted':true}
         	res.json(returnObject);
@@ -146,7 +146,7 @@ router.delete('/:id', function (req, res) {
 //modify
 router.put('/:id', function (req, res){
 	var dataId = req.params.id;
-	connection.query('UPDATE Destinations SET ?  WHERE id =' + dataId + ';', req.body, function (err,result){
+	connection.query('UPDATE destinations SET ?  WHERE id =' + dataId + ';', req.body, function (err,result){
 		if(err) throw err;
 		var returnObject = {'updated':true};
 		res.json(returnObject);

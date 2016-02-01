@@ -15,7 +15,7 @@ router.use(function(req, res, next) {
 router.get('/:id', function (req, res) {
 
 	var attractionId = req.params.id;
-	connection.query('select * from Attractions where id = ' + attractionId + ';', function(err, rows, fields) {
+	connection.query('select * from attractions where id = ' + attractionId + ';', function(err, rows, fields) {
 	if (err) throw err;
 	res.json(rows);
 	});
@@ -24,7 +24,7 @@ router.get('/:id', function (req, res) {
 router.get('/', function (req, res) {
 	var destId = req.query.destination_id;
 	if (destId) {
-	connection.query('select * from Attractions where dest_id = ' + destId + ';', function(err, rows, fields) {
+	connection.query('select * from attractions where dest_id = ' + destId + ';', function(err, rows, fields) {
 	if (err) throw err;
 	res.json(rows);
 	});
@@ -33,7 +33,7 @@ router.get('/', function (req, res) {
 
 // create
 router.post('/', function (req, res) {
-	connection.query('INSERT INTO Attractions SET ?', req.body, function(err, result) {
+	connection.query('INSERT INTO attractions SET ?', req.body, function(err, result) {
 		if (err) throw err;
 		var returnObject = {'created':true}
 		res.json(returnObject);
@@ -44,7 +44,7 @@ router.post('/', function (req, res) {
 // delete
 router.delete('/:id', function (req, res) {
         var attractionsId = req.params.id;
-        connection.query('DELETE FROM Attractions WHERE id =' + attractionsId + ';', function(err, result){
+        connection.query('DELETE FROM attractions WHERE id =' + attractionsId + ';', function(err, result){
         if (err) throw err;
         var returnObject = {'deleted':true}
         res.json(returnObject);
@@ -53,7 +53,7 @@ router.delete('/:id', function (req, res) {
 // update
 router.put('/:id', function (req, res) {
 	var attractionId = req.params.id;
-	connection.query('UPDATE Attractions SET ?  WHERE id = ' + attractionId, req.body, function(err, result){
+	connection.query('UPDATE attractions SET ?  WHERE id = ' + attractionId, req.body, function(err, result){
 	if (err) throw err;
 	var returnObject = {'updated':true}
 	res.json(returnObject);

@@ -5,12 +5,17 @@ A Node.js web application intended to run on Raspberry Pi hardware.
 # Requirements
 
  - [Node.js][1] `>= 4.2.6`
+ - [MySQL][2] `>= 5.5.47`
 
-Installing Node.js on your platform of choice is beyond the scope of this document.
+Installing Node.js and/or MySQL on your platform of choice is beyond the scope of this document.
 
 # Getting Started
 
 ```bash
+# Import database structure
+$ mysql -e "create database voyage";
+$ mysql voyage < voyage-initial-db-structure.sql
+
 # Install dependencies
 $ npm install
 
@@ -23,3 +28,4 @@ $ npm run auto-reload
 ```
 
 [1]: https://nodejs.org/en/
+[2]: https://www.mysql.com/products/community/

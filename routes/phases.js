@@ -13,15 +13,12 @@ router.use(function(req, res, next) {
 router.get('/:id', function (req, res) {
         //res.json({message: 'hello world'});
 	var datId = req.params.id;
-        connection.query('SELECT DISTINCT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Phases p, Destinations d WHERE p.id = d.phase_id ORDER BY p.sort'
+        connection.query('SELECT DISTINCT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM phases p, destinations d WHERE p.id = d.phase_id ORDER BY p.sort'
 , function (err, rows, fields) {
 	var my_phase = {};
 	var found = false; //when the correct phase is found switch to true
      if (err) throw err;
 	for(var row in rows){
-		console.log(rows[row].id);
-		//console.log((rows[row].id in phaseIds));
-		//console.log(phaseIds);
 	   if( !(found) && (rows[row].id == datId)) {
 	       //phaseIds.push(rows[row].id);
 	       my_phase.id = rows[row].id;
@@ -29,7 +26,6 @@ router.get('/:id', function (req, res) {
 	       my_phase.sort = rows[row].p_sort;
 	       my_phase.destinations = [];
 	    	//for each in destinations
-			console.log('-----');
     		for (var dest in rows){
                     if(rows[dest].id == my_phase.id){
 		        var my_dest = {};
@@ -58,7 +54,7 @@ router.get('/:id', function (req, res) {
 router.get('/:id', function (req, res) {
         //res.json({message: 'hello world'});
         var datId = req.params.id;
-        connection.query('SELECT * FROM Phases  WHERE id = '+ datId +';', function (err, rows, fields) {
+        connection.query('SELECT * FROM phases  WHERE id = '+ datId +';', function (err, rows, fields) {
         if (err) throw err;
         res.json(rows);
         });
@@ -66,16 +62,13 @@ router.get('/:id', function (req, res) {
 */
 
 router.get('/', function (req, res) {
-        connection.query('SELECT DISTINCT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM Phases p, Destinations d WHERE p.id = d.phase_id ORDER BY p.sort'
+        connection.query('SELECT DISTINCT p.id AS id, p.name AS p_name, p.sort AS p_sort, d.id as d_id, d.phase_id AS d_phaseid, d.name AS d_name, d.distance AS d_distance, d.dest_photo AS d_destphoto, d.map_photo AS d_map_photo, d.voyage_desc AS d_voyage_desc, d.dest_desc AS d_dest_desc, d.arrival_date AS d_arrival_date, d.departure_date AS d_departure_date, d.sort AS d_sort FROM phases p, destinations d WHERE p.id = d.phase_id ORDER BY p.sort'
 , function (err, rows, fields) {
    	var data = [];
 	var phaseIds = [];
 
      if (err) throw err;
 	for(var row in rows){
-		console.log(rows[row].id);
-		console.log((rows[row].id in phaseIds));
-		console.log(phaseIds);
 	   if(phaseIds.indexOf(rows[row].id) == -1) {
 	       phaseIds.push(rows[row].id);
 	       var my_phase = {};
@@ -84,7 +77,6 @@ router.get('/', function (req, res) {
 	       my_phase.sort = rows[row].p_sort;
 	       my_phase.destinations = [];
 	    	//for each in destinations
-			console.log('-----');
     		for (var dest in rows){
                     if(rows[dest].id == my_phase.id){
 		        var my_dest = {};
@@ -110,7 +102,7 @@ router.get('/', function (req, res) {
 
 // add
 router.post('/', function (req, res) {
-        connection.query('INSERT INTO Attractions SET ?', req.body, function(err, result) {
+        connection.query('INSERT INTO attractions SET ?', req.body, function(err, result) {
                 if (err) throw err;
                 var returnObject = {'created':true};
                 res.json(returnObject);
@@ -121,7 +113,7 @@ router.post('/', function (req, res) {
 router.delete('/:id', function (req, res) {
         //res.json({message: 'hello world'});
 	var datId = req.params.id;
-	connection.query('DELETE FROM Phases WHERE id ='+ datId +';', function(err, result){
+	connection.query('DELETE FROM phases WHERE id ='+ datId +';', function(err, result){
 		if (err) throw err;
 		var returnObject = {'deleted':true}
 		res.json(returnObject);
@@ -137,9 +129,8 @@ router.post('/phase_sort', function (req, res) {
     var phases = req.body;
     var keys = Object.keys(phases);
     for (var item in keys) {
-        connection.query('UPDATE Phases SET sort=' + phases[keys[item]] + ' WHERE id=' + keys[item], function(err, result) {
+        connection.query('UPDATE phases SET sort=' + phases[keys[item]] + ' WHERE id=' + keys[item], function(err, result) {
             if (err) throw err;
-			console.log(result);
         });
     }
     res.status(200).send();

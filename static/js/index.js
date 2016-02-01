@@ -167,7 +167,6 @@ $(document).ready(function() {
 				data[id.toString()] = (index+1).toString();
 			});
 
-			console.log(data);
 			var xhr = $.ajax({
 				url: self.config.updateSortUrl,
 				data: data,
